@@ -25,13 +25,14 @@
                     <div>
                         <TrelloBoardTask             
                         :task="task"
+                        @delete="column.tasks = column.tasks.filter((t)=> t.id !== $event)"
                         />
                     </div>
 
                 </template>
         </draggable>
         <footer>
-            <button class="text-gray-500">+ Add a Card</button>
+            <NewTask @add="column.tasks.push($event)"/>
         </footer>
     </div>
     </template>
